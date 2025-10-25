@@ -1,11 +1,9 @@
 package com.msz;
 
-import java.util.Scanner;
-
-import com.msz.factory.FactoryClass;
+import com.msz.factory.GetNew;
 
 public class App {
 	public static void main(String[] args) {
-		FactoryClass.runProgram().showMenu();
+		GetNew.app().run();
 	}
 }

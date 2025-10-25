@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface RepositoryInterface<K, T> {
-	public String save(K key, T obj);
+	public String save(T obj);
 
 	public Map<K, T> findAll();
 

@@ -1,5 +1,7 @@
 package com.msz.interfaces;
 
-public interface MenuInterface<T, U> {
-	public void showMenu(T t, U u);
+import java.util.Scanner;
+
+public interface MenuInterface {
+	public void showMenu(Scanner scanner);
 }

@@ -12,7 +12,7 @@ public class StudentService implements RepositoryInterface<Integer, Student> {
 	Map<Integer, Student> students = new HashMap<>();
 
 	@Override
-	public String save(Integer key, Student obj) {
+	public String save(Student obj) {
 		int id = students.size() + 1;
 		obj.setStudentId(id);
 		students.put(id, obj);
