@@ -1,9 +1,9 @@
 package com.msz;
 
-import com.msz.factory.GetNew;
+import com.msz.factory.Application;
 
 public class App {
 	public static void main(String[] args) {
-		GetNew.app().run();
+		Application.program().init();
 	}
 }

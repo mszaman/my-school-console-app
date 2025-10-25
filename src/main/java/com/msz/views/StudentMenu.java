@@ -1,11 +1,12 @@
 package com.msz.views;
 
+import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
 import com.msz.entities.Student;
-import com.msz.factory.GetNew;
+import com.msz.factory.Factory;
 import com.msz.interfaces.MenuInterface;
 
 public class StudentMenu implements MenuInterface {
@@ -30,6 +31,7 @@ public class StudentMenu implements MenuInterface {
 				this.menuContent();
 
 				selectedMenuNumber = scanner.nextInt();
+				// System.out.println(selectedMenuNumber);
 
 				if (selectedMenuNumber < 0 || selectedMenuNumber > 3) {
 					this.invalidMenuChoice();
@@ -38,11 +40,24 @@ public class StudentMenu implements MenuInterface {
 
 				if (selectedMenuNumber == 0) {
 					break;
-				}
+				} // else if (selectedMenuNumber == 1) {
+				// this.sendRequest(scanner);
+				// } else if (selectedMenuNumber == 2) {
+
+				// }
 
 				switch (selectedMenuNumber) {
 					case 1:
 						this.sendRequest(scanner);
+						break;
+					case 2:
+						System.out.println("-".repeat(36));
+						System.out.printf("| %-3s | %-20s | %-3s |%n", "ID", "Name", "Age");
+						System.out.println("-".repeat(36));
+						Factory.studentController().getAllStudents().forEach((i, n) -> {
+							System.out.printf("| %-3s | %-20s | %-3s |%n", n.getStudentId(), n.getSutdentName(), n.getStudentAge());
+							System.out.println("-".repeat(36));
+						});
 						break;
 					default:
 						break;
@@ -68,7 +83,7 @@ public class StudentMenu implements MenuInterface {
 			try {
 				String studentName;
 				int studentAge;
-				String str;
+				// String str;
 
 				System.out.println();
 				System.out.println();
@@ -84,7 +99,7 @@ public class StudentMenu implements MenuInterface {
 					continue;
 				}
 
-				GetNew.studentController().saveStudent(studentName, studentAge);
+				Factory.studentController().saveStudent(studentName, studentAge);
 
 				System.out.println();
 				System.out.println("Student is added.");
@@ -138,4 +153,8 @@ public class StudentMenu implements MenuInterface {
 		System.out.println();
 	}
 
+	private void showStudents() {
+		Factory.studentController().getAllStudents().forEach((i, n) -> System.out
+				.println("ID = " + n.getStudentId() + ", Name = " + n.getSutdentName() + ", Age = " + n.getStudentAge()));
+	}
 }

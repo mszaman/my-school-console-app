@@ -2,13 +2,13 @@ package com.msz.views;
 
 import java.util.Scanner;
 
-import com.msz.factory.GetNew;
+import com.msz.factory.Factory;
 
 public class MainMenu {
 
 	private Scanner scanner = new Scanner(System.in);
 
-	public void run() {
+	public void init() {
 		int selectedMenuNumber;
 
 		System.out.println();
@@ -37,7 +37,7 @@ public class MainMenu {
 
 				switch (selectedMenuNumber) {
 					case 1:
-						GetNew.studentMenu().showMenu(scanner);
+						Factory.studentMenu().showMenu(scanner);
 						break;
 
 					default:

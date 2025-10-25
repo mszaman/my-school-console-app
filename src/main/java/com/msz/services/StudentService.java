@@ -9,20 +9,28 @@ import com.msz.repositories.RepositoryInterface;
 
 public class StudentService implements RepositoryInterface<Integer, Student> {
 
-	Map<Integer, Student> students = new HashMap<>();
+	private Map<Integer, Student> students = new HashMap<>();
 
 	@Override
 	public String save(Student obj) {
-		int id = students.size() + 1;
+		int id = this.students.size() + 1;
 		obj.setStudentId(id);
-		students.put(id, obj);
+		this.students.put(id, obj);
+		// System.out.println("from service class save : " + this.students.get(1));
+		// this.students.forEach((key, object) -> {
+		// System.out.println("Key: " + key + " | Value: " + object.getSutdentName());
+		// });
 		return "The Student is Added.";
 	}
 
 	@Override
 	public Map<Integer, Student> findAll() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+		// System.out.println("from service class findAll : " + this.students.get(1));
+		// this.students.forEach((key, object) -> {
+		// System.out.println("ForEach - Key: " + key + " | Value: " +
+		// object.getSutdentName());
+		// });
+		return this.students;
 	}
 
 	@Override
