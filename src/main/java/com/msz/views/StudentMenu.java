@@ -1,11 +1,8 @@
 package com.msz.views;
 
-import java.util.HashMap;
 import java.util.InputMismatchException;
-import java.util.Map;
 import java.util.Scanner;
 
-import com.msz.entities.Student;
 import com.msz.factory.Factory;
 import com.msz.interfaces.MenuInterface;
 
@@ -51,15 +48,14 @@ public class StudentMenu implements MenuInterface {
 						this.sendRequest(scanner);
 						break;
 					case 2:
-						System.out.println("-".repeat(36));
-						System.out.printf("| %-3s | %-20s | %-3s |%n", "ID", "Name", "Age");
-						System.out.println("-".repeat(36));
-						Factory.studentController().getAllStudents().forEach((i, n) -> {
-							System.out.printf("| %-3s | %-20s | %-3s |%n", n.getStudentId(),
-									n.getSutdentName(), n.getStudentAge());
-							// System.out.println(i);
-							System.out.println("-".repeat(36));
-						});
+						System.out.println();
+						System.out.println();
+						System.out.println("=".repeat(22));
+						System.out.println("==== All Students ====");
+						System.out.println("=".repeat(22));
+						this.showStudents();
+						System.out.println();
+						System.out.println();
 						break;
 					default:
 						break;
@@ -156,7 +152,14 @@ public class StudentMenu implements MenuInterface {
 	}
 
 	private void showStudents() {
-		Factory.studentController().getAllStudents().forEach((i, n) -> System.out
-				.println("ID = " + n.getStudentId() + ", Name = " + n.getSutdentName() + ", Age = " + n.getStudentAge()));
+
+		System.out.println("-".repeat(36));
+		System.out.printf("| %-3s | %-20s | %-3s |%n", "ID", "Name", "Age");
+		System.out.println("-".repeat(36));
+		Factory.studentController().getAllStudents().forEach((i, n) -> {
+			System.out.printf("| %-3s | %-20s | %-3s |%n", n.getStudentId(),
+					n.getSutdentName(), n.getStudentAge());
+			System.out.println("-".repeat(36));
+		});
 	}
 }
