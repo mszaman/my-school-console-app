@@ -55,7 +55,9 @@ public class StudentMenu implements MenuInterface {
 						System.out.printf("| %-3s | %-20s | %-3s |%n", "ID", "Name", "Age");
 						System.out.println("-".repeat(36));
 						Factory.studentController().getAllStudents().forEach((i, n) -> {
-							System.out.printf("| %-3s | %-20s | %-3s |%n", n.getStudentId(), n.getSutdentName(), n.getStudentAge());
+							System.out.printf("| %-3s | %-20s | %-3s |%n", n.getStudentId(),
+									n.getSutdentName(), n.getStudentAge());
+							// System.out.println(i);
 							System.out.println("-".repeat(36));
 						});
 						break;

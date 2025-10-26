@@ -9,17 +9,18 @@ import com.msz.repositories.RepositoryInterface;
 
 public class StudentController {
 	private RepositoryInterface<Integer, Student> studentRepo;
+	private StudentMapper studentMapper;
 
 	public StudentController() {
 		this.studentRepo = Factory.studentService();
 	}
 
 	public void saveStudent(String studentName, int studentAge) {
-		StudentMapper studentMapper = new StudentMapper(Factory.student());
+		this.studentMapper = new StudentMapper(Factory.student());
 
-		studentMapper.setStudent(studentName, studentAge);
+		this.studentMapper.setStudent(studentName, studentAge);
 
-		this.studentRepo.save(studentMapper.getStudent());
+		this.studentRepo.save(this.studentMapper.getStudent());
 
 	}
 

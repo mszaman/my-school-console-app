@@ -10,7 +10,6 @@ import com.msz.views.StudentMenu;
 public class Factory {
 
 	private static StudentMenu studentMenu = null;
-	private static Student student = null;
 	private static StudentService studentService = null;
 	private static StudentController studentController = null;
 	private static Scanner scanner = null;
@@ -23,10 +22,7 @@ public class Factory {
 	}
 
 	public static Student student() {
-		if (student == null) {
-			student = new Student();
-		}
-		return student;
+		return new Student();
 	}
 
 	public static StudentService studentService() {

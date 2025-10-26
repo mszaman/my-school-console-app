@@ -16,20 +16,11 @@ public class StudentService implements RepositoryInterface<Integer, Student> {
 		int id = this.students.size() + 1;
 		obj.setStudentId(id);
 		this.students.put(id, obj);
-		// System.out.println("from service class save : " + this.students.get(1));
-		// this.students.forEach((key, object) -> {
-		// System.out.println("Key: " + key + " | Value: " + object.getSutdentName());
-		// });
 		return "The Student is Added.";
 	}
 
 	@Override
 	public Map<Integer, Student> findAll() {
-		// System.out.println("from service class findAll : " + this.students.get(1));
-		// this.students.forEach((key, object) -> {
-		// System.out.println("ForEach - Key: " + key + " | Value: " +
-		// object.getSutdentName());
-		// });
 		return this.students;
 	}
 
